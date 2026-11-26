@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido — Latte &amp; Chocolatte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="cabecalho">
+        <nav id="nav" class="navbar navbar-cacau" aria-label="Menu principal">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-links">
+                        <span class="sr-only">Abrir menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="pagina.html">Latte &amp; Chocolatte</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu-links">
+                    <ul class="nav navbar-nav">
+                        <li><a href="pagina.html">Início</a></li>
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li class="active"><a href="Pedidos.html" aria-current="page">Pedidos</a></li>
+                        <li><a href="Contato.html">Contato</a></li>
+                    </ul>
+                    <div class="navbar-right" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                        <!-- Caixa de pesquisa -->
+                        <div id="box-pesquisa-nav" style="display: none;">
+                            <input type="search" id="campo-pesquisa" class="form-control input-cacau input-sm" placeholder="Buscar sabor..." aria-label="Digite o sabor" style="width: 150px; height: 34px;">
+                        </div>
+
+                        <!-- Botão da Lupa -->
+                        <button type="button" id="btn-abrir-pesquisa" class="btn btn-sacola navbar-btn" aria-label="Abrir pesquisa" title="Pesquisar chocolates">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+
+                        <!-- Acessibilidade: Diminuir e Aumentar Fonte -->
+                        <button type="button" id="btn-diminuir-fonte" class="btn btn-sacola navbar-btn" aria-label="Diminuir tamanho do texto" title="Diminuir letra">
+                            A-
+                        </button>
+                        <button type="button" id="btn-aumentar-fonte" class="btn btn-sacola navbar-btn" aria-label="Aumentar tamanho do texto" title="Aumentar letra">
+                            A+
+                        </button>
+
+                        <!-- Botão Modo Claro -->
+                        <button type="button" id="btn-tema" class="btn btn-sacola navbar-btn" aria-label="Alternar modo claro e escuro">
+                            Modo Claro
+                        </button>
+
+                        <!-- Botão de Login / Usuário Logado -->
+                        <button type="button" id="btn-abrir-conta" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-conta">
+                            Entrar
+                        </button>
+
+                        <!-- Botão da Sacola -->
+                        <button type="button" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-sacola">
+                            Sacola (<span id="contador-sacola">0</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="conteudo-principal">
+        <div class="container">
+
+            <!-- Seção 1: Barras de Chocolate -->
+            <section id="barras" class="row secao-barras">
+                <div class="col-md-12">
+                    <div class="caixa-builder fundo-barras">
+                        <h2>Barras de chocolate</h2>
+                        <p class="caixa-status">Escolha suas barras (500g)</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Chocolate Ao Leite" data-preco="18.50">
+                                    <h3>Barra de Chocolate Ao Leite</h3>
+                                    <span class="preco">R$ 18,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Chocolate Ao Leite">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Chocolate Ao Leite">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Chocolate 50% Cacau" data-preco="18.50">
+                                    <h3>Barra de Chocolate 50% Cacau</h3>
+                                    <span class="preco">R$ 18,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Chocolate 50% Cacau">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Chocolate 50% Cacau">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Chocolate Branco" data-preco="18.50">
+                                    <h3>Barra de Chocolate Branco</h3>
+                                    <span class="preco">R$ 18,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Chocolate Branco">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Chocolate Branco">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Chocolate Duo (Branco e ao Leite)" data-preco="18.50">
+                                    <h3>Barra de Chocolate Duo (Branco e ao Leite)</h3>
+                                    <span class="preco">R$ 18,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Chocolate Duo">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Chocolate Duo">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Pistache" data-preco="20.00">
+                                    <h3>Barra de Pistache</h3>
+                                    <span class="preco">R$ 20,00</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Pistache">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Pistache">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card-sabor card-barra" data-nome="Barra de Mocha (Café)" data-preco="20.00">
+                                    <h3>Barra de Mocha (Café)</h3>
+                                    <span class="preco">R$ 20,00</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-barra" aria-label="Remover Barra de Mocha (Café)">-</button>
+                                        <span class="qtd-barra">0</span>
+                                        <button type="button" class="btn btn-qtd mais-barra" aria-label="Adicionar Barra de Mocha (Café)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 2: Promoção Chocolatras -->
+            <section id="promocao" class="row secao-barras">
+                <div class="col-md-12">
+                    <div class="caixa-builder" style="border-left: 4px solid #DFB88B;">
+                        <span class="selo-promo">Promoção Chocolatras</span>
+                        <h2>Monte seu Combo: 2 Barras Clássicas por R$ 25,00</h2>
+                        <p class="caixa-status" aria-live="polite">
+                            Selecionados: <strong id="qtd-promo">0</strong> / <strong>2</strong> barras clássicas — Valor do Combo: <strong>R$ 25,00</strong> <span style="text-decoration: line-through; opacity: 0.7;">(R$ 37,00)</span>
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card-sabor card-promo-item" data-nome="Barra Ao Leite (Promo)">
+                                    <h3>Barra Ao Leite</h3>
+                                    <span class="preco">Clássica 500g</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-promo" aria-label="Remover Barra Ao Leite da promoção">-</button>
+                                        <span class="qtd-item-promo">0</span>
+                                        <button type="button" class="btn btn-qtd mais-promo" aria-label="Adicionar Barra Ao Leite na promoção">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card-sabor card-promo-item" data-nome="Barra 50% Cacau (Promo)">
+                                    <h3>Barra 50% Cacau</h3>
+                                    <span class="preco">Clássica 500g</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-promo" aria-label="Remover Barra 50% Cacau da promoção">-</button>
+                                        <span class="qtd-item-promo">0</span>
+                                        <button type="button" class="btn btn-qtd mais-promo" aria-label="Adicionar Barra 50% Cacau na promoção">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card-sabor card-promo-item" data-nome="Barra Branco (Promo)">
+                                    <h3>Barra Chocolate Branco</h3>
+                                    <span class="preco">Clássica 500g</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-promo" aria-label="Remover Barra Branco da promoção">-</button>
+                                        <span class="qtd-item-promo">0</span>
+                                        <button type="button" class="btn btn-qtd mais-promo" aria-label="Adicionar Barra Branco na promoção">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card-sabor card-promo-item" data-nome="Barra Duo (Promo)">
+                                    <h3>Barra Chocolate Duo</h3>
+                                    <span class="preco">Clássica 500g</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos-promo" aria-label="Remover Barra Duo da promoção">-</button>
+                                        <span class="qtd-item-promo">0</span>
+                                        <button type="button" class="btn btn-qtd mais-promo" aria-label="Adicionar Barra Duo na promoção">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="btn-finalizar-promo" class="btn btn-terracota btn-block" disabled>
+                            Escolha 2 barras clássicas para fechar o combo (R$ 25,00)
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 3: Monte sua Caixa de Presentes -->
+            <div class="row secao-barras">
+                <div class="col-md-5 caixa-foto">
+                    <img src="caixa3-chocolate.jfif" alt="Caixa artesanal aberta repleta de bombons variados" class="img-responsive" style="margin-bottom: 18px;">
+                    <img src="caixa-chocolate.jpg" alt="Caixa de bombom" class="img-responsive">
+                </div>
+                <section class="col-md-7" aria-labelledby="titulo-sabores">
+                    <div class="caixa-builder">
+                        <h1 id="titulo-sabores" style="font-size: 32px; margin-top: 0;">Monte sua Caixa de Presentes</h1>
+                        <div class="seletor-tamanho" role="group" aria-label="Escolha o tamanho da caixa">
+                            <button type="button" class="btn btn-tamanho ativo" data-limite="6">Caixa 6 Trufas</button>
+                            <button type="button" class="btn btn-tamanho" data-limite="8">Caixa 8 Trufas</button>
+                        </div>
+                        <p class="caixa-status" aria-live="polite">
+                            Selecionados: <strong id="qtd-atual">0</strong> / <strong id="limite-atual">6</strong> bombons — Total: <strong id="valor-total">R$ 0,00</strong>
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Trufa de Maracujá" data-preco="5.50">
+                                    <h3>Trufa de Maracujá</h3>
+                                    <span class="preco">R$ 5,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Trufa de Maracujá">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Trufa de Maracujá">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Caramelo Salgado" data-preco="6.00">
+                                    <h3>Trufa de Caramelo Salgado</h3>
+                                    <span class="preco">R$ 6,00</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Caramelo Salgado">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Caramelo Salgado">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Trufa de Morango" data-preco="5.50">
+                                    <h3>Trufa de Morango</h3>
+                                    <span class="preco">R$ 5,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Trufa de Morango">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Trufa de Morango">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Trufa de Chocolate ao Leite" data-preco="5.50">
+                                    <h3>Trufa de Chocolate ao Leite</h3>
+                                    <span class="preco">R$ 5,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Trufa de Chocolate ao Leite">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Trufa de Chocolate ao Leite">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Trufa de Nozes" data-preco="5.50">
+                                    <h3>Trufa de Nozes</h3>
+                                    <span class="preco">R$ 5,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Trufa de Nozes">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Trufa de Nozes">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card-sabor" data-nome="Trufa de Pistache e Chocolate Branco" data-preco="6.50">
+                                    <h3>Trufa de Pistache e Chocolate Branco</h3>
+                                    <span class="preco">R$ 6,50</span>
+                                    <div class="controles">
+                                        <button type="button" class="btn btn-qtd menos" aria-label="Remover Trufa de Pistache e Chocolate Branco">-</button>
+                                        <span class="qtd-item">0</span>
+                                        <button type="button" class="btn btn-qtd mais" aria-label="Adicionar Trufa de Pistache e Chocolate Branco">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="btn-finalizar" class="btn btn-terracota btn-block" disabled>
+                            Escolha 6 bombons para fechar a caixa
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Botão Fechar Carrinho -->
+            <div class="row secao-espacada">
+                <div class="col-md-12 text-right">
+                    <button type="button" id="btn-abrir-carrinho" class="btn btn-terracota btn-lg" data-toggle="modal" data-target="#modal-entrega">
+                        Fechar Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Dados de Entrega -->
+    <div class="modal fade" id="modal-entrega" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-entrega">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-cacau">
+                <div class="modal-header">
+                    <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar janela">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="modal-title" id="titulo-modal-entrega">Finalizar Pedido — Dados de Entrega</h2>
+                </div>
+                <form id="form-pedido">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nome-cliente">Nome completo *</label>
+                            <input type="text" id="nome-cliente" class="form-control input-cacau" required placeholder="Ex: Sabrina Silva">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone-cliente">Telefone / WhatsApp *</label>
+                            <input type="tel" id="telefone-cliente" class="form-control input-cacau" required placeholder="(11) 99999-9999">
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco-cliente">Endereço completo para entrega *</label>
+                            <input type="text" id="endereco-cliente" class="form-control input-cacau" required placeholder="Rua, número, complemento e bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="cartao-mensagem">Mensagem para o cartão de presente (opcional)</label>
+                            <textarea id="cartao-mensagem" class="form-control input-cacau" rows="3" placeholder="Escreva um recado especial para acompanhar o presente..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sacola" data-dismiss="modal">Voltar ao pedido</button>
+                        <button type="submit" class="btn btn-terracota">Confirmar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal da Sacola -->
+    <div class="modal fade" id="modal-sacola" tabindex="-1" role="dialog" aria-labelledby="titulo-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-cacau">
+                <div class="modal-header">
+                    <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                    <h4 class="modal-title" id="titulo-modal">Sua sacola</h4>
+                </div>
+                <div class="modal-body" id="lista-sacola">
+                    <p>Sua sacola está vazia.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sacola" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-terracota" id="btn-concluir-pedido">Concluir Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contato" class="rodape">
+        <div class="container">
+            <p>Latte &amp; Chocolatte — Chocolataria • Encomendas e Eventos</p>
+        </div>
+    </footer>
+
+    <!--  Login e Criar Conta -->
+        <div class="modal fade" id="modal-conta" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-conta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-cacau">
+                    <div class="modal-header">
+                        <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                        <h4 class="modal-title" id="titulo-modal-conta">Minha Conta — Latte &amp; Chocolatte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Abas Entrar / Criar Conta -->
+                        <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 18px; border-bottom: 1px solid var(--borda-sutil);">
+                            <li role="presentation" class="active">
+                                <a href="#aba-login" aria-controls="aba-login" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Login</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#aba-cadastro" aria-controls="aba-cadastro" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Criar Conta</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- Formulário de Login -->
+                            <div role="tabpanel" class="tab-pane active" id="aba-login">
+                                <form id="form-login">
+                                    <div class="form-group">
+                                        <label for="login-email">E-mail *</label>
+                                        <input type="email" id="login-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-senha">Senha *</label>
+                                        <input type="password" id="login-senha" class="form-control input-cacau" required placeholder="Digite sua senha">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Entrar na Conta</button>
+                                </form>
+                            </div>
+
+                            <!-- Formulário de Cadastro -->
+                            <div role="tabpanel" class="tab-pane" id="aba-cadastro">
+                                <form id="form-cadastro">
+                                    <div class="form-group">
+                                        <label for="cad-nome">Nome Completo *</label>
+                                        <input type="text" id="cad-nome" class="form-control input-cacau" required placeholder="Ex: Sabrina Silva">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-email">E-mail *</label>
+                                        <input type="email" id="cad-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-senha">Crie uma Senha *</label>
+                                        <input type="password" id="cad-senha" class="form-control input-cacau" required minlength="4" placeholder="Mínimo 4 caracteres">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Criar Minha Conta</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Área exibida quando o usuário já está logado -->
+                        <div id="painel-usuario-logado" style="display: none; text-align: center; padding: 15px 0;">
+                            <p style="font-size: 17px;">Olá, <strong id="nome-usuario-logado"></strong>!</p>
+                            <p style="color: var(--texto-suave); font-family: system-ui, sans-serif;">Você está conectado na Latte &amp; Chocolatte.</p>
+                            <button type="button" id="btn-sair-conta" class="btn btn-sacola">Sair da Conta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

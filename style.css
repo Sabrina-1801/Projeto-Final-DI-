@@ -1,0 +1,495 @@
+/* =========================================================
+   1. VARIÁVEIS DE CORES E CONTRASTE (WCAG)
+   ========================================================= */
+:root {
+    --fundo-cacau: #1A0E0A;
+    --fundo-card: #261510;
+    --texto-creme: #FAF3EB;
+    --texto-suave: #D7C7B8;
+    --destaque-terracota: #B85D3B;
+    --destaque-hover: #D16D47;
+    --borda-sutil: rgba(250, 243, 235, 0.18);
+}
+
+/* Tema Claro */
+body.modo-claro {
+    --fundo-cacau: #FAF3EB;
+    --fundo-card: #EFE2D3;
+    --texto-creme: #1A0E0A;
+    --texto-suave: #3E2723;
+    --borda-sutil: rgba(26, 14, 10, 0.22);
+}
+
+body.modo-claro .navbar-cacau {
+    background-color: #E6D3BE;
+}
+
+/* =========================================================
+   2. CONFIGURAÇÕES GERAIS E ACESSIBILIDADE
+   ========================================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--fundo-cacau);
+    color: var(--texto-creme);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #F4A261 !important;
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   3. MENU DE NAVEGAÇÃO
+   ========================================================= */
+.navbar-cacau {
+    background-color: #140A07;
+    border: none;
+    border-bottom: 1px solid var(--borda-sutil);
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 10px 0;
+}
+
+.navbar-cacau .logo {
+    color: var(--texto-creme) !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-cacau .logo:hover {
+    color: var(--destaque-hover) !important;
+}
+
+.navbar-cacau .navbar-nav > li > a {
+    font-family: system-ui, sans-serif;
+    color: var(--texto-creme) !important;
+    font-size: 15px;
+}
+
+.navbar-cacau .navbar-nav > li > a:hover,
+.navbar-cacau .navbar-nav > li > a:focus {
+    background-color: transparent;
+    color: var(--destaque-hover) !important;
+    text-decoration: underline;
+}
+
+.navbar-cacau .navbar-toggle {
+    border-color: var(--borda-sutil);
+}
+
+.navbar-cacau .navbar-toggle .icon-bar {
+    background-color: var(--texto-creme);
+}
+
+/* =========================================================
+   4. BOTÕES PERSONALIZADOS
+   ========================================================= */
+.btn-sacola {
+    font-family: system-ui, sans-serif;
+    background-color: transparent;
+    color: var(--texto-creme);
+    border: 1px solid var(--borda-sutil);
+}
+
+.btn-sacola:hover,
+.btn-sacola:focus {
+    background-color: var(--fundo-card);
+    color: var(--texto-creme);
+}
+
+.btn-terracota {
+    font-family: system-ui, sans-serif;
+    background-color: var(--destaque-terracota);
+    color: #FFFFFF;
+    font-weight: 600;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 15px;
+}
+
+.btn-terracota:hover:not(:disabled),
+.btn-terracota:focus:not(:disabled) {
+    background-color: var(--destaque-hover);
+    color: #FFFFFF;
+}
+
+.btn-terracota:disabled {
+    background-color: #4A352E;
+    color: #B8A89E;
+    opacity: 1;
+}
+
+/* =========================================================
+   5. SEÇÃO HERO (CAPA PRINCIPAL DO SITE)
+   ========================================================= */
+.hero {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--borda-sutil);
+}
+
+.hero-texto h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-texto p {
+    font-family: system-ui, sans-serif;
+    color: var(--texto-suave);
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.hero-imagem img {
+    border-radius: 8px;
+    border: 1px solid var(--borda-sutil);
+    max-height: 360px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* =========================================================
+   6. BANNER "PEÇA SUAS BARRAS" & BLOQUINHO PROMOÇÃO (#DFB88B)
+   ========================================================= */
+.parte-pedidos {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.banner-barras {
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda-sutil);
+    border-left: 4px solid var(--destaque-terracota);
+    border-radius: 8px;
+    padding: 22px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.banner-barras h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.banner-barras .btn-terracota {
+    margin-top: 0;
+}
+
+.secao-promo {
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.card-promocao {
+    background-color: #DFB88B;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.promo-info {
+    flex: 1;
+}
+
+.selo-promo {
+    display: inline-block;
+    background-color: #1A0E0A;
+    color: #DFB88B;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.promo-info h3 {
+    color: #1A0E0A;
+    margin-top: 0;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.promo-info p {
+    font-family: system-ui, sans-serif;
+    color: #2B1810;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.promo-info .btn-terracota {
+    margin-top: 0;
+}
+
+.promo-foto img {
+    width: 115px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(26, 14, 10, 0.2);
+}
+
+/* =========================================================
+   7. MONTADOR DE CAIXA E CARDS DE SABORES
+   ========================================================= */
+.conteudo-principal {
+    padding: 60px 0;
+}
+
+.caixa-foto img {
+    border-radius: 8px;
+    border: 1px solid var(--borda-sutil);
+}
+
+.historia h2,
+.caixa-builder h2 {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.caixa-builder {
+    background-color: var(--fundo-card);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--borda-sutil);
+}
+
+.caixa-status {
+    font-family: system-ui, sans-serif;
+    color: var(--texto-suave);
+    border-bottom: 1px solid var(--borda-sutil);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.card-sabor {
+    background-color: var(--fundo-cacau);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--borda-sutil);
+    margin-bottom: 15px;
+}
+
+.card-sabor h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.card-sabor .preco {
+    display: block;
+    font-family: system-ui, sans-serif;
+    color: var(--texto-suave);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: system-ui, sans-serif;
+}
+
+.btn-qtd {
+    background-color: var(--fundo-card);
+    color: var(--texto-creme);
+    border: 1px solid var(--borda-sutil);
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    padding: 0;
+}
+
+.btn-qtd:hover,
+.btn-qtd:focus {
+    background-color: var(--destaque-terracota);
+    color: #FFFFFF;
+}
+
+.seletor-tamanho {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.btn-tamanho {
+    flex: 1;
+    font-family: system-ui, sans-serif;
+    background-color: var(--fundo-cacau);
+    color: var(--texto-suave);
+    border: 1px solid var(--borda-sutil);
+    padding: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-tamanho:hover {
+    color: var(--texto-creme);
+    border-color: var(--destaque-terracota);
+}
+
+.btn-tamanho.ativo {
+    background-color: var(--destaque-terracota);
+    color: #FFFFFF;
+    border-color: var(--destaque-terracota);
+}
+
+/* =========================================================
+   8. PÁGINA PEDIDOS, MODAL E RODAPÉ
+   ========================================================= */
+.secao-barras {
+    margin-bottom: 45px;
+    padding-bottom: 45px;
+    border-bottom: 1px solid var(--borda-sutil);
+}
+
+.fundo-barras {
+    background-image: linear-gradient(rgba(26, 14, 10, 0.78), rgba(26, 14, 10, 0.85)), url('sabores-chocolate.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.fundo-barras h2,
+.fundo-barras .caixa-status {
+    color: #FAF3EB;
+}
+
+.fundo-barras .card-barra {
+    background-color: rgba(26, 14, 10, 0.85);
+    color: #FAF3EB;
+}
+
+.fundo-barras .card-barra .preco {
+    color: #D7C7B8;
+}
+
+.input-cacau {
+    background-color: var(--fundo-cacau);
+    color: var(--texto-creme);
+    border: 1px solid var(--borda-sutil);
+    font-family: system-ui, sans-serif;
+}
+
+.input-cacau:focus {
+    border-color: var(--destaque-terracota);
+    box-shadow: none;
+}
+
+label {
+    font-family: system-ui, sans-serif;
+    font-weight: normal;
+    color: var(--texto-creme);
+}
+
+.modal-cacau {
+    background-color: var(--fundo-card);
+    color: var(--texto-creme);
+    border: 1px solid var(--borda-sutil);
+    border-radius: 8px;
+}
+
+.modal-cacau .modal-header {
+    border-bottom: 1px solid var(--borda-sutil);
+}
+
+.modal-cacau .modal-title {
+    font-size: 24px;
+}
+
+.modal-cacau .modal-footer {
+    border-top: 1px solid var(--borda-sutil);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-cacau .modal-footer .btn-terracota {
+    margin-top: 0;
+}
+
+.fechar-modal {
+    color: var(--texto-creme);
+    opacity: 0.8;
+    font-size: 28px;
+}
+
+.fechar-modal:hover {
+    color: var(--destaque-hover);
+    opacity: 1;
+}
+
+.rodape {
+    border-top: 1px solid var(--borda-sutil);
+    padding: 25px 0;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    color: var(--texto-suave);
+}
+
+/* =========================================================
+   9. PÁGINA SOBRE (SOBRE.HTML)
+   ========================================================= */
+.secao-sobre {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--borda-sutil);
+}
+
+.secao-sobre-invertida {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.titulo-sobre {
+    font-size: 34px;
+    line-height: 1.25;
+    margin-top: 6px;
+    margin-bottom: 18px;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--borda-sutil);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+/* =========================================================
+   10. ACESSIBILIDADE DE FONTE E ABAS DE LOGIN
+   ========================================================= */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    background-color: var(--destaque-terracota) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--destaque-terracota) !important;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: var(--borda-sutil);
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}

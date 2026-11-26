@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós — Latte &amp; Chocolatte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="cabecalho">
+        <nav id="nav" class="navbar navbar-cacau" aria-label="Menu principal">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-links">
+                        <span class="sr-only">Abrir menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="pagina.html">Latte &amp; Chocolatte</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu-links">
+                    <ul class="nav navbar-nav">
+                        <li><a href="pagina.html">Início</a></li>
+                        <li class="active"><a href="Sobre.html" aria-current="page">Sobre</a></li>
+                        <li><a href="Pedidos.html">Pedidos</a></li>
+                        <li><a href="Contato.html">Contato</a></li>
+                    </ul>
+                    <div class="navbar-right" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                        <!-- Caixa de pesquisa -->
+                        <div id="box-pesquisa-nav" style="display: none;">
+                            <input type="search" id="campo-pesquisa" class="form-control input-cacau input-sm" placeholder="Buscar sabor..." aria-label="Digite o sabor" style="width: 150px; height: 34px;">
+                        </div>
+
+                        <!-- Botão da Lupa -->
+                        <button type="button" id="btn-abrir-pesquisa" class="btn btn-sacola navbar-btn" aria-label="Abrir pesquisa" title="Pesquisar chocolates">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+
+                        <!-- Acessibilidade: Diminuir e Aumentar Fonte -->
+                        <button type="button" id="btn-diminuir-fonte" class="btn btn-sacola navbar-btn" aria-label="Diminuir tamanho do texto" title="Diminuir letra">
+                            A-
+                        </button>
+                        <button type="button" id="btn-aumentar-fonte" class="btn btn-sacola navbar-btn" aria-label="Aumentar tamanho do texto" title="Aumentar letra">
+                            A+
+                        </button>
+
+                        <!-- Botão Modo Claro -->
+                        <button type="button" id="btn-tema" class="btn btn-sacola navbar-btn" aria-label="Alternar modo claro e escuro">
+                            Modo Claro
+                        </button>
+
+                        <!-- Botão de Login / Usuário Logado -->
+                        <button type="button" id="btn-abrir-conta" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-conta">
+                            Entrar
+                        </button>
+
+                        <!-- Botão da Sacola -->
+                        <button type="button" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-sacola">
+                            Sacola (<span id="contador-sacola">0</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="conteudo-principal">
+        <div class="container">
+            <section class="row secao-sobre" aria-labelledby="titulo-loja">
+                <div class="col-md-6 sobre-imagem">
+                    <img src="loja-chocolate.jfif" alt="Fachada da loja Latte & Chocolatte com toldo listrado e iluminação quente" class="img-responsive">
+                </div>
+                <div class="col-md-6 historia">
+                    <span class="selo-promo">Nossa Casa</span>
+                    <h1 id="titulo-loja" class="titulo-sobre">Um refúgio para apaixonados por cacau e café</h1>
+                    <p>
+                        Na <strong>Latte &amp; Chocolatte</strong>, cada detalhe da nossa loja física foi pensado para transformar uma simples pausa do dia em uma experiência sensorial completa. Do aroma de grãos recém-moídos ao brilho das nossas vitrines de trufas artesanais, criamos um ambiente acolhedor para você desacelerar.
+                    </p>
+                    <p>
+                        Aqui, você encontra desde nossas barras clássicas de 500g até caixas personalizadas montadas na hora para presentear alguém especial — sempre acompanhadas de um atendimento próximo e receitas preparadas diariamente em nossa cozinha.
+                    </p>
+                    <a href="Pedidos.html" class="btn btn-terracota">Conhecer Nossos Chocolates</a>
+                </div>
+            </section>
+
+            <section id="sobre-nos" class="row secao-sobre-invertida" aria-labelledby="titulo-sobre-nos">
+                <div class="col-md-6 historia">
+                    <div class="caixa-builder">
+                        <span class="selo-promo">Nossa História</span>
+                        <h2 id="titulo-sobre-nos">Sobre Nós</h2>
+                        <p>
+                            Nossa loja surgiu de uma paixão por chocolate e da união entre a equipe da Latte &amp; Chocolatte. Meu interesse pela confeitaria é uma herança dos meus avós, que têm uma pequena fazenda que antes fornecia apenas para mercados. Como sempre tive vontade de ter o meu próprio negócio, decidi abordá-los com a ideia de criarmos uma parceria comercial. Após uma conversa muito agradável e participativa, eles aceitaram e ficaram bastante interessados e felizes com a proposta, que rapidamente saiu do papel. Nossa equipe é formada a partir de um critério muito especial e essencial: o carinho e o amor ao próximo e, sem querer nos gabar, temos os melhores colaboradores.
+                        </p>
+                        <p>
+                            Cada peça é produzida com muito apreço. Usamos cacau que extraímos direto das fazendas após suas fases de fermentação e secagem, selecionamos as melhores torras de cacau (amêndoas secas) e as levamos para o forno para serem torradas e depois descascadas, separando assim a casca do miolo puro, o nibs de cacau. Os nibs são passados para a moagem e o refino, que são responsáveis pela extração da manteiga do cacau; é nessa hora que o cacau assume uma textura líquida, quente e 100% pura, conhecido como o líquor do cacau. É ele que traz o aroma e o gosto mágico em cada mordida de nossos chocolates. Elas são temperadas artesanalmente para garantir brilho perfeito e sabor intenso.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 sobre-imagem">
+                    <img src="cacau-chocolate.jfif" alt="Frutos de cacau frescos abertos mostrando as sementes" class="img-responsive">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contato" class="rodape">
+        <div class="container">
+            <p>Latte &amp; Chocolatte — Chocolataria Artesanal • Contato: (11) 99999-9999</p>
+        </div>
+    </footer>
+
+    <!-- Modal da Sacola -->
+    <div class="modal fade" id="modal-sacola" tabindex="-1" role="dialog" aria-labelledby="titulo-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-cacau">
+                <div class="modal-header">
+                    <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                    <h4 class="modal-title" id="titulo-modal">Sua sacola</h4>
+                </div>
+                <div class="modal-body" id="lista-sacola">
+                    <p>Sua sacola está vazia.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sacola" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-terracota" id="btn-concluir-pedido">Concluir Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login e Criar Conta -->
+        <div class="modal fade" id="modal-conta" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-conta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-cacau">
+                    <div class="modal-header">
+                        <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                        <h4 class="modal-title" id="titulo-modal-conta">Minha Conta — Latte &amp; Chocolatte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Abas Entrar / Criar Conta -->
+                        <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 18px; border-bottom: 1px solid var(--borda-sutil);">
+                            <li role="presentation" class="active">
+                                <a href="#aba-login" aria-controls="aba-login" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Login</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#aba-cadastro" aria-controls="aba-cadastro" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Criar Conta</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- Formulário de Login -->
+                            <div role="tabpanel" class="tab-pane active" id="aba-login">
+                                <form id="form-login">
+                                    <div class="form-group">
+                                        <label for="login-email">E-mail *</label>
+                                        <input type="email" id="login-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-senha">Senha *</label>
+                                        <input type="password" id="login-senha" class="form-control input-cacau" required placeholder="Digite sua senha">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Entrar na Conta</button>
+                                </form>
+                            </div>
+
+                            <!-- Formulário de Cadastro -->
+                            <div role="tabpanel" class="tab-pane" id="aba-cadastro">
+                                <form id="form-cadastro">
+                                    <div class="form-group">
+                                        <label for="cad-nome">Nome Completo *</label>
+                                        <input type="text" id="cad-nome" class="form-control input-cacau" required placeholder="Ex: Sabrina Silva">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-email">E-mail *</label>
+                                        <input type="email" id="cad-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-senha">Crie uma Senha *</label>
+                                        <input type="password" id="cad-senha" class="form-control input-cacau" required minlength="4" placeholder="Mínimo 4 caracteres">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Criar Minha Conta</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Área exibida quando o usuário já está logado -->
+                        <div id="painel-usuario-logado" style="display: none; text-align: center; padding: 15px 0;">
+                            <p style="font-size: 17px;">Olá, <strong id="nome-usuario-logado"></strong>!</p>
+                            <p style="color: var(--texto-suave); font-family: system-ui, sans-serif;">Você está conectado na Latte &amp; Chocolatte.</p>
+                            <button type="button" id="btn-sair-conta" class="btn btn-sacola">Sair da Conta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

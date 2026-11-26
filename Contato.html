@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato — Latte &amp; Chocolatte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="cabecalho">
+        <nav id="nav" class="navbar navbar-cacau" aria-label="Menu principal">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-links">
+                        <span class="sr-only">Abrir menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="pagina.html">Latte &amp; Chocolatte</a>
+                </div>
+                <div class="collapse navbar-collapse" id="menu-links">
+                    <ul class="nav navbar-nav">
+                        <li><a href="pagina.html">Início</a></li>
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Pedidos.html">Pedidos</a></li>
+                        <li class="active"><a href="Contato.html" aria-current="page">Contato</a></li>
+                    </ul>
+                    <div class="navbar-right" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                        <!-- Caixa de pesquisa -->
+                        <div id="box-pesquisa-nav" style="display: none;">
+                            <input type="search" id="campo-pesquisa" class="form-control input-cacau input-sm" placeholder="Buscar sabor..." aria-label="Digite o sabor" style="width: 150px; height: 34px;">
+                        </div>
+
+                        <!-- Botão da Lupa -->
+                        <button type="button" id="btn-abrir-pesquisa" class="btn btn-sacola navbar-btn" aria-label="Abrir pesquisa" title="Pesquisar chocolates">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+
+                        <!-- Acessibilidade: Diminuir e Aumentar Fonte -->
+                        <button type="button" id="btn-diminuir-fonte" class="btn btn-sacola navbar-btn" aria-label="Diminuir tamanho do texto" title="Diminuir letra">
+                            A-
+                        </button>
+                        <button type="button" id="btn-aumentar-fonte" class="btn btn-sacola navbar-btn" aria-label="Aumentar tamanho do texto" title="Aumentar letra">
+                            A+
+                        </button>
+
+                        <!-- Botão Modo Claro -->
+                        <button type="button" id="btn-tema" class="btn btn-sacola navbar-btn" aria-label="Alternar modo claro e escuro">
+                            Modo Claro
+                        </button>
+
+                        <!-- Botão de Login / Usuário Logado -->
+                        <button type="button" id="btn-abrir-conta" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-conta">
+                            Entrar
+                        </button>
+
+                        <!-- Botão da Sacola -->
+                        <button type="button" class="btn btn-sacola navbar-btn" data-toggle="modal" data-target="#modal-sacola">
+                            Sacola (<span id="contador-sacola">0</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="conteudo-principal">
+        <div class="container">
+            <div class="row secao-barras">
+                <div class="col-md-5">
+                    <h1 style="margin-top: 0; font-size: 34px;">Fale Conosco</h1>
+                    <p style="font-family: system-ui, sans-serif; color: var(--texto-suave); margin-bottom: 24px;">
+                        Tem dúvidas sobre encomendas para eventos, restrições alimentares ou presentes corporativos? Envie sua mensagem.
+                    </p>
+                    <div class="card-sabor">
+                        <h3><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Endereço da Loja</h3>
+                        <span class="preco" style="margin-bottom: 0;">Rua do Cacau Artesanal, 420 — Centro</span>
+                    </div>
+                    <div class="card-sabor">
+                        <h3><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Horário de Funcionamento</h3>
+                        <span class="preco" style="margin-bottom: 0;">Segunda a Sábado, das 09h às 20h</span>
+                    </div>
+                    <div class="card-sabor">
+                        <h3><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> WhatsApp &amp; Encomendas</h3>
+                        <span class="preco" style="margin-bottom: 0;">(11) 99999-9999 • contato@lattechocolatte.com.br</span>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="caixa-builder">
+                        <h2>Envie sua Mensagem</h2>
+                        <form id="form-contato-pagina" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Responderemos em breve.'); this.reset();">
+                            <div class="form-group">
+                                <label for="contato-nome">Seu Nome *</label>
+                                <input type="text" id="contato-nome" class="form-control input-cacau" required placeholder="Digite seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="contato-email">Seu E-mail *</label>
+                                <input type="email" id="contato-email" class="form-control input-cacau" required placeholder="exemplo@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contato-assunto">Assunto</label>
+                                <select id="contato-assunto" class="form-control input-cacau">
+                                    <option value="duvida">Dúvida sobre produtos</option>
+                                    <option value="encomenda">Encomenda para festas e eventos</option>
+                                    <option value="elogio">Elogio ou sugestão</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contato-msg">Mensagem *</label>
+                                <textarea id="contato-msg" class="form-control input-cacau" rows="4" required placeholder="Como podemos ajudar você?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-terracota btn-block">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referências das Pesquisas -->
+            <section class="row" aria-labelledby="titulo-referencias">
+                <div class="col-md-12">
+                    <div class="caixa-builder">
+                        <h2 id="titulo-referencias">Referências das Pesquisas</h2>
+                        <ul style="font-family: system-ui, sans-serif; color: var(--texto-suave); line-height: 1.8;">
+                            <li><strong>W3C — Web Content Accessibility Guidelines (WCAG) 2.1:</strong> Diretrizes de contraste mínimo (AA/AAA), navegação por teclado e atributos ARIA.</li>
+                            <li><strong>Bootstrap 3.4.1 Documentation:</strong> Sistema de grid responsivo de 12 colunas, barra de navegação, modais, carrossel e ícones Glyphicons (<code>https://getbootstrap.com/docs/3.4/</code>).</li>
+                            <li><strong>BootstrapCDN &amp; jQuery 3.7.1:</strong> Arquivos de estilo e comportamento carregados via CDN (<code>maxcdn.bootstrapcdn.com/bootstrap/3.4.1/</code> e <code>ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js</code>).</li>
+                            <li><strong>Psicologia das Cores no Design Gastronômico:</strong> Estudo sobre o uso de tons terrosos, marrom cacau (<code>#1A0E0A</code>), caramelo (<code>#DFB88B</code>) e terracota (<code>#B85D3B</code>) para transmitir sofisticação, aconchego e estímulo ao apetite.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>Latte &amp; Chocolatte — Chocolataria Artesanal • Contato: (11) 99999-9999</p>
+        </div>
+    </footer>
+
+    <!-- Modal da Sacola -->
+    <div class="modal fade" id="modal-sacola" tabindex="-1" role="dialog" aria-labelledby="titulo-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-cacau">
+                <div class="modal-header">
+                    <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                    <h4 class="modal-title" id="titulo-modal">Sua sacola</h4>
+                </div>
+                <div class="modal-body" id="lista-sacola">
+                    <p>Sua sacola está vazia.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sacola" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-terracota" id="btn-concluir-pedido">Concluir Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login e Criar Conta -->
+        <div class="modal fade" id="modal-conta" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-conta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-cacau">
+                    <div class="modal-header">
+                        <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Fechar">&times;</button>
+                        <h4 class="modal-title" id="titulo-modal-conta">Minha Conta — Latte &amp; Chocolatte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Abas Entrar / Criar Conta -->
+                        <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 18px; border-bottom: 1px solid var(--borda-sutil);">
+                            <li role="presentation" class="active">
+                                <a href="#aba-login" aria-controls="aba-login" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Login</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#aba-cadastro" aria-controls="aba-cadastro" role="tab" data-toggle="tab" style="color: var(--texto-creme); background: transparent;">Criar Conta</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- Formulário de Login -->
+                            <div role="tabpanel" class="tab-pane active" id="aba-login">
+                                <form id="form-login">
+                                    <div class="form-group">
+                                        <label for="login-email">E-mail *</label>
+                                        <input type="email" id="login-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-senha">Senha *</label>
+                                        <input type="password" id="login-senha" class="form-control input-cacau" required placeholder="Digite sua senha">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Entrar na Conta</button>
+                                </form>
+                            </div>
+
+                            <!-- Formulário de Cadastro -->
+                            <div role="tabpanel" class="tab-pane" id="aba-cadastro">
+                                <form id="form-cadastro">
+                                    <div class="form-group">
+                                        <label for="cad-nome">Nome Completo *</label>
+                                        <input type="text" id="cad-nome" class="form-control input-cacau" required placeholder="Ex: Sabrina Silva">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-email">E-mail *</label>
+                                        <input type="email" id="cad-email" class="form-control input-cacau" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cad-senha">Crie uma Senha *</label>
+                                        <input type="password" id="cad-senha" class="form-control input-cacau" required minlength="4" placeholder="Mínimo 4 caracteres">
+                                    </div>
+                                    <button type="submit" class="btn btn-terracota btn-block">Criar Minha Conta</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Área exibida quando o usuário já está logado -->
+                        <div id="painel-usuario-logado" style="display: none; text-align: center; padding: 15px 0;">
+                            <p style="font-size: 17px;">Olá, <strong id="nome-usuario-logado"></strong>!</p>
+                            <p style="color: var(--texto-suave); font-family: system-ui, sans-serif;">Você está conectado na Latte &amp; Chocolatte.</p>
+                            <button type="button" id="btn-sair-conta" class="btn btn-sacola">Sair da Conta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
